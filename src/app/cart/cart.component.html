@@ -1,0 +1,24 @@
+
+<p *ngIf="cart.length === 0">Your cart is empty.</p>
+<table *ngIf="cart.length > 0">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cart">
+      <td>{{ item.name }}</td>
+      <td>
+        <button (click)="decrement(item)">-</button>
+        {{ item.quantity }} in cart
+        <button (click)="increment(item)">+</button>
+      </td>
+      <td>\${{ item.price * item.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
+<p>Total: \${{ totalPrice }}</p>
+<button (click)="clearCart()">Clear Shopping Cart</button>

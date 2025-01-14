@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CartService } from '../services/cart.service';
+import { Item } from '../models/item.model';
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-cart',
@@ -9,24 +11,30 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  cart = [
-    { name: 'Cinnamon Sticks', price: 0.5, quantity: 1 },
-    { name: 'Saffron', price: 6, quantity: 2 },
-  ];
+  constructor(public cartService: CartService) {}
 
-  get totalPrice() {
-    return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  get cart() {
+    return this.cartService.getCart();
   }
 
-  increment(item: any) {
-    item.quantity++;
+  get subtotal() {
+    return this.cartService.getSubtotal();
   }
 
-  decrement(item: any) {
-    if (item.quantity > 1) item.quantity--;
+  get tax() {
+    return this.subtotal * 0.13; 
+  }
+
+  get total() {
+    return this.subtotal + this.tax; 
   }
 
   clearCart() {
-    this.cart = [];
+    this.cartService.clearCart();
   }
+
+  get totalQuantity() {
+    return this.cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0);
+  }
+
 }

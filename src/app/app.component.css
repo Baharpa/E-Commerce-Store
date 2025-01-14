@@ -1,15 +1,27 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f8f8f8;
-  }
-  h1 {
-    margin: 0;
-  }
-  #cart-count {
-    font-size: 14px;
-    color: red;
-  }
-  
+nav {
+  background-color: #037ef9;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+nav a.active {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+nav span {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}

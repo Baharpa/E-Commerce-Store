@@ -1,30 +1,49 @@
-import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CartComponent } from './cart.component';
+import { CartService } from '../services/cart.service';
 
-@Component({
-  selector: 'app-cart',
-  standalone: true,
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
-})
-export class CartComponent {
-  cart = [
-    { name: 'Cinnamon Sticks', price: 0.5, quantity: 1 },
-    { name: 'Saffron', price: 6, quantity: 2 },
-  ];
+describe('CartComponent', () => {
+  let component: CartComponent;
+  let fixture: ComponentFixture<CartComponent>;
+  let mockCartService: jasmine.SpyObj<CartService>;
 
-  get totalPrice() {
-    return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  }
+  beforeEach(() => {
+    mockCartService = jasmine.createSpyObj('CartService', ['getCart', 'clearCart', 'getSubtotal']);
+    mockCartService.getCart.and.returnValue([
+      { item: { name: 'Milk', price: 1.5, category: 'Dairy', image: '' }, quantity: 2 },
+      { item: { name: 'Bread', price: 3.0, category: 'Bread', image: '' }, quantity: 1 },
+    ]);
+    mockCartService.getSubtotal.and.returnValue(6.0);
 
-  increment(item: any) {
-    item.quantity++;
-  }
+    TestBed.configureTestingModule({
+      imports: [],
+      declarations: [CartComponent],
+      providers: [{ provide: CartService, useValue: mockCartService }],
+    }).compileComponents();
 
-  decrement(item: any) {
-    if (item.quantity > 1) item.quantity--;
-  }
+    fixture = TestBed.createComponent(CartComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  clearCart() {
-    this.cart = [];
-  }
-}
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should calculate subtotal correctly', () => {
+    expect(component.subtotal).toBe(6.0);
+  });
+
+  it('should calculate tax correctly', () => {
+    expect(component.tax).toBeCloseTo(0.78, 2);
+  });
+
+  it('should calculate total correctly', () => {
+    expect(component.total).toBeCloseTo(6.78, 2);
+  });
+
+  it('should clear the cart', () => {
+    component.clearCart();
+    expect(mockCartService.clearCart).toHaveBeenCalled();
+  });
+});

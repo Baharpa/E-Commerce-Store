@@ -1,8 +1,7 @@
-
-<header>
-  <h1>Bahar's {{title}}</h1>
-  <a href="/cart">🛒 <span id="cart-count">0</span></a>
-</header>
-
+<nav>
+  <a routerLink="/shop" routerLinkActive="active">Bahar's E-Commerce Store</a>
+  <a routerLink="/cart" routerLinkActive="active">
+    🛒 Cart <span *ngIf="cartCount > 0">({{ cartCount }})</span>
+  </a>
+</nav>
 <router-outlet></router-outlet>
-<app-shop-c></app-shop-c>

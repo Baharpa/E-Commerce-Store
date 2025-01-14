@@ -1,0 +1,102 @@
+.categories {
+  float: left;
+  width: 20%;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+}
+
+.categories h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+.categories li.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.categories li:hover {
+  background-color: #e9ecef;
+}
+
+.items {
+  float: right;
+  width: 80%;
+  padding: 1rem;
+}
+
+.items h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.items .item {
+  display: inline-block;
+  width: 23%;
+  margin: 1%;
+  border: 1px solid #b3caff;
+  border-style:groove;
+  border-width: 0.08cm;
+  border-radius: 4px;
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(129, 6, 6, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.items .item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.items .item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.items .item p {
+  margin: 0.5rem 0;
+
+}
+
+.items .item button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.items .item button:hover {
+  background-color: #0056b3;
+}
+
+.item img {
+  max-height: 150px;
+  max-width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  object-fit: cover;
+}

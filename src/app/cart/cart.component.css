@@ -1,12 +1,94 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  button {
-    margin: 0 5px;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+.product-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.quantity-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; 
+  border-radius: 4px; 
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+  text-align: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.quantity-button:hover {
+  background-color: #0056b3;
+}
+
+
+.price-cell {
+  text-align: right;
+  font-weight: bold;
+}
+
+.summary {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: right;
+  float: right;
+  max-width: 300px;
+  padding-right: 0.4cm;
+}
+
+.summary p {
+  margin: 0.5rem 0;
+}
+
+.clear-cart-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clear-cart-button:hover {
+  background-color: #a71d2a;
+}
+.price2 {
+  text-align: right;
+}
+
+.image1{
+align-items: right;
+}

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ShopCComponent } from './shop-c/shop-c.component';
+import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './cart/cart.component';
 
-export const routes: Routes = [
-  { path: 'shop-c', component: ShopCComponent },
-  { path: 'cart', component: CartComponent },
+export const appRoutes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
+  { path: 'shop', component: ShopComponent },
+  { path: 'cart', component: CartComponent },
 ];
